@@ -22,9 +22,9 @@ func setPose() :
 
 func _process(delta):
 	
-	var brow = $"../Brow"
-	var newTrans = brow.global_transform.interpolate_with(TargetPose.global_transform, Interp * delta)
-	brow.global_transform = newTrans
+	var brow = $"../Character/Brow"
+	var newTrans = brow.transform.interpolate_with(TargetPose.global_transform, Interp * delta)
+	brow.transform = newTrans
 	
 	if Input.is_action_just_released("drag") :
 		setPose()

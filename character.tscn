@@ -27,6 +27,7 @@ background_mode = 2
 sky = SubResource("Sky_v25f4")
 ambient_light_source = 3
 reflected_light_source = 2
+ssao_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pl0kk"]
 render_priority = 0
@@ -67,7 +68,7 @@ surface_material_override/0 = ExtResource("7_6073e")
 script = ExtResource("9_84vkm")
 
 [node name="Brow" type="MeshInstance3D" parent="Character"]
-transform = Transform3D(-1.24937, 1.02892e-07, 0, -1.07219e-07, -1.15535, 0.327361, 2.08258e-08, 0.22441, 1.68538, 0, 0.731944, 0.955414)
+transform = Transform3D(-1.24937, 1.02892e-07, 0, -1.07219e-07, -1.15535, 0.35736, 2.08258e-08, 0.22441, 1.83983, 0, 0.734301, 0.967548)
 mesh = ExtResource("2_6u6bb")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("7_6073e")
@@ -78,21 +79,21 @@ mesh = ExtResource("10_6mmm4")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("4_ssf7j")
 
-[node name="BrowPoses" type="Node3D" parent="Character"]
+[node name="Shell" type="Node3D" parent="Character"]
+script = ExtResource("2_tv6s0")
+
+[node name="BrowPoses" type="Node3D" parent="."]
 transform = Transform3D(-1, 1.50996e-07, 9.99835e-16, -1.48226e-07, -0.981654, 0.190672, 2.87907e-08, 0.190672, 0.981654, 0, 0.731944, 0.955414)
 script = ExtResource("2_gpsg7")
 
-[node name="Pose0" type="Node3D" parent="Character/BrowPoses"]
-transform = Transform3D(1.24937, -4.18346e-16, -3.1185e-30, 4.44089e-16, 1.17694, 0, 2.26932e-30, 0, 1.71688, 0, 0, 0)
+[node name="Pose0" type="Node3D" parent="BrowPoses"]
+transform = Transform3D(1.24937, -1.64313e-14, 0, 1.42109e-14, 1.17694, -2.98023e-08, -3.55271e-15, 0, 1.71688, 0, 0, 0)
 
-[node name="Pose3" type="Node3D" parent="Character/BrowPoses"]
-transform = Transform3D(1.23096, 0.197566, -0.055979, -0.209723, 1.16024, 0.00473327, 0.0407356, 0.00324471, 1.71596, -0.0727013, -0.0473841, -0.00502002)
+[node name="Pose3" type="Node3D" parent="BrowPoses"]
+transform = Transform3D(1.23096, 0.197566, -0.055979, -0.209723, 1.16024, 0.00473326, 0.0407356, 0.00324473, 1.71596, -0.0727013, -0.0473841, -0.00502002)
 
-[node name="Pose2" type="Node3D" parent="Character/BrowPoses"]
-transform = Transform3D(1.24389, -0.110106, 9.22009e-08, 0.116006, 1.163, 0.209741, -0.0142787, -0.143149, 1.70402, 9.30545e-09, 0.0616279, 0.0198296)
+[node name="Pose2" type="Node3D" parent="BrowPoses"]
+transform = Transform3D(1.24389, -0.110106, 9.22009e-08, 0.116006, 1.163, 0.209741, -0.0142787, -0.143149, 1.70402, 9.30545e-09, 0.0616279, 0.0198295)
 
-[node name="Pose1" type="Node3D" parent="Character/BrowPoses"]
-transform = Transform3D(1.2386, -0.151363, 0.0428878, 0.160677, 1.16717, 0.00276976, -0.0312092, 0.00189873, 1.71634, -2.73124e-08, -0.180882, 0.00224316)
-
-[node name="Shell" type="Node3D" parent="."]
-script = ExtResource("2_tv6s0")
+[node name="Pose1" type="Node3D" parent="BrowPoses"]
+transform = Transform3D(1.2386, -0.151363, 0.0428878, 0.160677, 1.16717, 0.00276977, -0.0312092, 0.00189875, 1.71634, -2.73124e-08, -0.180882, 0.00224316)

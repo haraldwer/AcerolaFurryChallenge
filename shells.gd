@@ -6,8 +6,8 @@ extends Node3D
 var Shells : Array
 
 func _ready():
-	createShells($"../Character/Moustache", Vector3(0, 0, 0));
-	createShells($"../Character/Brow", Vector3(0, 50, 0));
+	createShells($"../Moustache", Vector3(0, 0, 0));
+	createShells($"../Brow", Vector3(0, 50, 0));
 	pass
 
 func createShells(ogShell : MeshInstance3D, baseVelocity : Vector3) :
@@ -25,7 +25,6 @@ func createShells(ogShell : MeshInstance3D, baseVelocity : Vector3) :
 		shell.BaseVel = baseVelocity
 		shell.sorting_offset = n
 	ogShell.hide()
-	print(ogShell.scale)
 	pass
 
 func _process(delta):

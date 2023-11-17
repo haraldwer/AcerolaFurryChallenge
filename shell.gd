@@ -13,8 +13,6 @@ var BaseVel = Vector3()
 
 func physics(delta) :
 	
-	global_rotation = Reference.global_rotation
-	
 	var targetPos = Reference.global_position
 	var difference = targetPos - Position
 	var posDelta = BaseVel + difference / delta
@@ -33,7 +31,7 @@ func physics(delta) :
 	Position += Velocity * delta
 	
 	global_position = lerp(targetPos, Position, Height)
-	
+	rotation = Reference.rotation
 	scale = Reference.scale
 	
 	pass
