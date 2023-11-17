@@ -27,7 +27,6 @@ background_mode = 2
 sky = SubResource("Sky_v25f4")
 ambient_light_source = 3
 reflected_light_source = 2
-ssao_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pl0kk"]
 render_priority = 0
