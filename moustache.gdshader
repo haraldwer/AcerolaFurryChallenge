@@ -15,10 +15,6 @@ void vertex() {
 	VERTEX += NORMAL * Height * ShellHeight;
 }
 
-float rand(vec2 co){
-    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
-}
-
 void fragment() {
 	
 	float mask = 1.0 - texture(Tex, UV).r;

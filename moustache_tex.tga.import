@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://wirtdh8ho8oi"
 path.s3tc="res://.godot/imported/moustache_tex.tga-eca351db473a5222b7f98caaeb0b7d6e.s3tc.ctex"
+path.etc2="res://.godot/imported/moustache_tex.tga-eca351db473a5222b7f98caaeb0b7d6e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://moustache_tex.tga"
-dest_files=["res://.godot/imported/moustache_tex.tga-eca351db473a5222b7f98caaeb0b7d6e.s3tc.ctex"]
+dest_files=["res://.godot/imported/moustache_tex.tga-eca351db473a5222b7f98caaeb0b7d6e.s3tc.ctex", "res://.godot/imported/moustache_tex.tga-eca351db473a5222b7f98caaeb0b7d6e.etc2.ctex"]
 
 [params]
 
