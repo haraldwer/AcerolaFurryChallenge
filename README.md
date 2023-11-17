@@ -5,18 +5,17 @@ Try the web demo:
 https://haraldwer.github.io/AcerolaFurryChallenge/
 
 <html> 
-  <head> 
-    <script src="jquery.js"></script> 
-    <script> 
-    $(function(){
-      $("#includedContent").load("https://haraldwer.github.io/AcerolaFurryChallenge/index.html"); 
-    });
-    </script> 
-  </head> 
-
-  <body> 
-     <div id="includedContent"></div>
-  </body> 
+  <div class="test">
+    <head> 
+      <script src="jquery.js"></script> 
+      <script> 
+      $(function(){
+        $("#includedContent").load("https://haraldwer.github.io/AcerolaFurryChallenge/index.html"); 
+      });
+      </script> 
+    </head> 
+    <body> 
+       <div id="includedContent"></div>
+    </body> 
+  </div>
 </html>
-
-
