@@ -8,7 +8,6 @@ var TargetRot = Vector2(0.0, 0.0)
 var CurrentRot = Vector2(0.0, 0.0)
 
 func _ready():
-	get_window().size = Vector2i(1000, 1000)
 	pass
 
 func _process(delta):
