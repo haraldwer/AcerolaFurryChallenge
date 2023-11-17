@@ -38,7 +38,7 @@ jobs:
         run: mkdir -v -p build/web
 
       - name: Build
-        run: godot -v --export-release --headless "HTML5" ../build/web/index.html
+        run: godot -v --export-release "HTML5" "build/web/index.html" --headless 
 
       - name: Install rsync 📚
         run: |
