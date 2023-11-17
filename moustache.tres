@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://co47kbis23k3o"]
 
 [ext_resource type="Shader" path="res://moustache.gdshader" id="1_yvmpt"]
-[ext_resource type="Texture2D" uid="uid://wirtdh8ho8oi" path="res://moustache.tga" id="2_nwswb"]
+[ext_resource type="Texture2D" uid="uid://wirtdh8ho8oi" path="res://moustache_tex.tga" id="2_nwswb"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_km7ac"]
 noise_type = 0
