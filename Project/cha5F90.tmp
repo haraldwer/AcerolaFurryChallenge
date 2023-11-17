@@ -1,0 +1,104 @@
+[gd_scene load_steps=19 format=3 uid="uid://bpfosatq3jbth"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_ldatg"]
+[ext_resource type="ArrayMesh" uid="uid://js4xnb8gahuh" path="res://hair.obj" id="1_uxmlh"]
+[ext_resource type="ArrayMesh" uid="uid://clxujecsh8dmr" path="res://moustache.obj" id="2_6u6bb"]
+[ext_resource type="Script" path="res://shells.gd" id="2_tv6s0"]
+[ext_resource type="ArrayMesh" uid="uid://cv5rkj55x88qe" path="res://character.obj" id="3_3xmsb"]
+[ext_resource type="Shader" path="res://eyes.gdshader" id="3_8wqb7"]
+[ext_resource type="Material" uid="uid://b6rifo2g6qhry" path="res://skin.tres" id="4_ssf7j"]
+[ext_resource type="Shader" path="res://moustache.gdshader" id="7_duxvm"]
+[ext_resource type="Texture2D" uid="uid://bqhoqgl37g1er" path="res://moustache.tga" id="8_2phuo"]
+[ext_resource type="Script" path="res://shell.gd" id="9_84vkm"]
+[ext_resource type="ArrayMesh" uid="uid://bc1s6i6kadcyo" path="res://nose.obj" id="10_6mmm4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1yjkp"]
+sky_top_color = Color(0.67451, 0.811765, 0.964706, 1)
+sky_horizon_color = Color(0.807843, 0.886275, 0.980392, 1)
+ground_bottom_color = Color(0.67451, 0.811765, 0.964706, 1)
+ground_horizon_color = Color(0.807843, 0.886275, 0.980392, 1)
+ground_curve = 0.15
+
+[sub_resource type="Sky" id="Sky_v25f4"]
+sky_material = SubResource("ProceduralSkyMaterial_1yjkp")
+
+[sub_resource type="Environment" id="Environment_c6fb4"]
+background_mode = 2
+sky = SubResource("Sky_v25f4")
+ambient_light_source = 3
+reflected_light_source = 2
+ssao_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pl0kk"]
+render_priority = 0
+shader = ExtResource("3_8wqb7")
+shader_parameter/eye_white = Color(1, 1, 1, 1)
+shader_parameter/eye_black = Color(0, 0, 0, 1)
+shader_parameter/eye_iris = Color(0.1, 0.1, 0.5, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_km7ac"]
+noise_type = 0
+domain_warp_enabled = true
+domain_warp_frequency = 0.01
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dkhxa"]
+noise = SubResource("FastNoiseLite_km7ac")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1qs8"]
+render_priority = 0
+shader = ExtResource("7_duxvm")
+shader_parameter/Height = 0.1
+shader_parameter/ShellHeight = 0.3
+shader_parameter/Density = 300.0
+shader_parameter/MinStrandHeight = 0.2
+shader_parameter/BaseColor = Color(0.290196, 0.203922, 0.14902, 1)
+shader_parameter/TipColor = Color(0.768627, 0.666667, 0.509804, 1)
+shader_parameter/NoiseScale = 3.0
+shader_parameter/Tex = ExtResource("8_2phuo")
+shader_parameter/Noise = SubResource("NoiseTexture2D_dkhxa")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ldatg")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 3.39232e-16, 3.59596e-15, -6.5135e-16, 0.996195, 0.0871558, -3.55271e-15, -0.0871558, 0.996195, 0, 0.85, 5.5)
+environment = SubResource("Environment_c6fb4")
+fov = 35.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.505474, 0.769312, 0.39071, -0.0993889, -0.501717, 0.859303, 0.857099, 0.395523, 0.330066, 3.10307, 2.60077, -0.0231068)
+
+[node name="Character" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Character"]
+mesh = ExtResource("3_3xmsb")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_pl0kk")
+surface_material_override/1 = ExtResource("4_ssf7j")
+
+[node name="Hair" type="MeshInstance3D" parent="Character"]
+visible = false
+mesh = ExtResource("1_uxmlh")
+skeleton = NodePath("../..")
+
+[node name="Moustache" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129775, 1.00441)
+mesh = ExtResource("2_6u6bb")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_d1qs8")
+script = ExtResource("9_84vkm")
+
+[node name="Brow" type="MeshInstance3D" parent="Character"]
+transform = Transform3D(-1.24937, 9.69109e-08, 0, -1.07219e-07, -1.08819, 0.24843, 2.08258e-08, 0.211366, 1.27901, 0, 0.731944, 0.955414)
+mesh = ExtResource("2_6u6bb")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_d1qs8")
+script = ExtResource("9_84vkm")
+
+[node name="Nose" type="MeshInstance3D" parent="Character"]
+mesh = ExtResource("10_6mmm4")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("4_ssf7j")
+
+[node name="Shell" type="Node3D" parent="."]
+script = ExtResource("2_tv6s0")
