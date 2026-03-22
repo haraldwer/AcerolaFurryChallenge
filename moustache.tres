@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://co47kbis23k3o"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://co47kbis23k3o"]
 
-[ext_resource type="Shader" path="res://moustache.gdshader" id="1_yvmpt"]
+[ext_resource type="Shader" uid="uid://bb76fgebn861a" path="res://moustache.gdshader" id="1_yvmpt"]
 [ext_resource type="Texture2D" uid="uid://wirtdh8ho8oi" path="res://moustache_tex.tga" id="2_nwswb"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_km7ac"]
@@ -15,11 +15,11 @@ noise = SubResource("FastNoiseLite_km7ac")
 [resource]
 render_priority = 0
 shader = ExtResource("1_yvmpt")
+shader_parameter/Tex = ExtResource("2_nwswb")
 shader_parameter/Height = 0.0
 shader_parameter/ShellHeight = 0.3
 shader_parameter/MinStrandHeight = 0.2
 shader_parameter/BaseColor = Color(0.290196, 0.145098, 0.0588235, 1)
 shader_parameter/TipColor = Color(1, 0.72, 0.3, 1)
-shader_parameter/NoiseScale = Vector2(10, 5)
-shader_parameter/Tex = ExtResource("2_nwswb")
 shader_parameter/Noise = SubResource("NoiseTexture2D_dkhxa")
+shader_parameter/NoiseScale = Vector2(10, 5)

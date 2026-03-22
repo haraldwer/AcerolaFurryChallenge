@@ -7,7 +7,7 @@ var Shells : Array
 
 func _ready():
 	createShells($"../Moustache", Vector3(0, 0, 0));
-	createShells($"../Brow", Vector3(0, 50, 0));
+	createShells($"../Brow", Vector3(0, 10, 50));
 	pass
 
 func createShells(ogShell : MeshInstance3D, baseVelocity : Vector3) :
